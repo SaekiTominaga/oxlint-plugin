@@ -4,27 +4,30 @@
 	"description": "Use `try`...`catch` for Web Storage API for increase safety",
 	"keywords": [
 		"eslint",
-		"eslintplugin",
-		"eslint-plugin"
+		"eslint-plugin",
+		"eslintplugin"
 	],
 	"homepage": "https://github.com/SaekiTominaga/eslint-plugin#readme",
 	"bugs": {
 		"url": "https://github.com/SaekiTominaga/eslint-plugin/issues"
 	},
+	"license": "MIT",
+	"author": "Saeki Tominaga",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/SaekiTominaga/eslint-plugin.git"
 	},
-	"license": "MIT",
-	"author": "Saeki Tominaga",
-	"type": "module",
-	"main": "dist/index.js",
-	"module": "dist/index.js",
-	"types": "dist/index.d.ts",
 	"files": [
 		"dist/**/*.d.ts",
 		"dist/**/*.js"
 	],
+	"type": "module",
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"prebuild": "rimraf dist/* -g",
 		"build": "tsc",
@@ -35,8 +38,5 @@
 	},
 	"peerDependencies": {
 		"eslint": "^9.0.0 || ^10.0.0"
-	},
-	"publishConfig": {
-		"access": "public"
 	}
 }
