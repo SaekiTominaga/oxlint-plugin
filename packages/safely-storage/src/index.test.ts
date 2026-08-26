@@ -4,5 +4,5 @@ import plugin from './index.ts';
 
 await test('read package.json', () => {
 	assert.equal(plugin.meta?.name, 'eslint-plugin-safely-storage');
-	assert.equal(plugin.meta.version !== undefined && /[0-9]+\.[0-9]+\.[0-9]+/.test(plugin.meta.version), true);
+	assert.equal(plugin.meta.version !== undefined && /[0-9]+\.[0-9]+\.[0-9]+/u.test(plugin.meta.version), true);
 });
