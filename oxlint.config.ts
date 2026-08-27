@@ -8,6 +8,7 @@ export default defineConfig({
 		pedantic: 'error',
 		perf: 'error',
 		style: 'error',
+		restriction: 'off',
 		nursery: 'error',
 	},
 	rules: {
