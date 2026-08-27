@@ -31,9 +31,7 @@
 	"scripts": {
 		"prebuild": "rimraf dist/* -g",
 		"build": "tsc",
-		"watch": "tsc -w",
-		"lint": "eslint src/**/*.ts",
-		"pretest": "tsc --noEmit",
+		"lint": "oxlint",
 		"test": "node --experimental-test-coverage --test src/**/*.test.ts"
 	},
 	"peerDependencies": {
