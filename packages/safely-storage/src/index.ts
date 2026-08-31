@@ -1,40 +1,11 @@
-import fs from 'node:fs';
-import type { ESLint, Linter } from 'eslint';
+import { eslintCompatPlugin } from '@oxlint/plugins';
 import ruleTryCatch from './rules/tryCatch.ts';
 
-interface PackageJson {
-	name: string;
-	version: string;
-}
-
-type PluginConfigs = Record<string, Linter.Config[]>;
-
-const { name, version } = JSON.parse((await fs.promises.readFile('./package.json')).toString()) as PackageJson;
-
-const plugin: Omit<ESLint.Plugin, 'configs'> & { configs: PluginConfigs } = {
+export default eslintCompatPlugin({
 	meta: {
-		name: name,
-		version: version,
+		name: 'oxlint-plugin-safely-storage',
 	},
-	configs: {},
 	rules: {
 		'try-catch': ruleTryCatch,
 	},
-};
-
-const configs: PluginConfigs = {
-	default: [
-		{
-			plugins: {
-				'safely-storage': plugin,
-			},
-			rules: {
-				'safely-storage/try-catch': 'error',
-			},
-		},
-	],
-};
-
-Object.assign(plugin.configs, configs);
-
-export default plugin;
+});

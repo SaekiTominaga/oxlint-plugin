@@ -1,7 +1,7 @@
-import type { Rule } from 'eslint';
+import type { Rule } from '@oxlint/plugins';
 import { wrappedTry } from '../util/node.ts';
 
-const rule: Rule.RuleModule = {
+const rule: Rule = {
 	meta: {
 		type: 'suggestion',
 		messages: {
@@ -9,7 +9,7 @@ const rule: Rule.RuleModule = {
 			localStorage: 'Access to `localStorage` can cause an exception, so be sure to use it with try...catch',
 		},
 	},
-	create(context) {
+	createOnce(context) {
 		return {
 			Identifier(node) {
 				switch (node.name) {

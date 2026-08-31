@@ -1,6 +1,6 @@
-import type { Rule } from 'eslint';
+import type { ESTree } from '@oxlint/plugins';
 
-export const wrappedTry = (node: Rule.Node): boolean => {
+export const wrappedTry = (node: ESTree.Node): boolean => {
 	const { parent } = node;
 
 	if (parent === null) {
