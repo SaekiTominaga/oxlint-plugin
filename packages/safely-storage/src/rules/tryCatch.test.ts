@@ -1,9 +1,9 @@
-import { RuleTester } from 'eslint';
+import { RuleTester } from 'oxlint/plugins-dev';
 import rule from './tryCatch.ts';
 
 const ruleTester = new RuleTester();
 
-ruleTester.run('storage-try-catch', rule, {
+ruleTester.run('safely-storage/try-catch', rule, {
 	valid: [
 		{
 			name: 'Parent try',
@@ -46,7 +46,10 @@ sessionStorage;
 `,
 			errors: [
 				{
-					message: rule.meta?.messages?.['sessionStorage']!,
+					messageId: 'sessionStorage',
+					line: 2,
+					column: 0,
+					endColumn: 14,
 				},
 			],
 		},
@@ -57,7 +60,10 @@ localStorage.setItem('key', 'value');
 `,
 			errors: [
 				{
-					message: rule.meta?.messages?.['localStorage']!,
+					messageId: 'localStorage',
+					line: 2,
+					column: 0,
+					endColumn: 12,
 				},
 			],
 		},
@@ -68,7 +74,10 @@ const mySessionStorage = sessionStorage;
 `,
 			errors: [
 				{
-					message: rule.meta?.messages?.['sessionStorage']!,
+					messageId: 'sessionStorage',
+					line: 2,
+					column: 25,
+					endColumn: 39,
 				},
 			],
 		},
@@ -80,7 +89,10 @@ myLocalStorage = localStorage;
 `,
 			errors: [
 				{
-					message: rule.meta?.messages?.['localStorage']!,
+					messageId: 'localStorage',
+					line: 3,
+					column: 17,
+					endColumn: 29,
 				},
 			],
 		},

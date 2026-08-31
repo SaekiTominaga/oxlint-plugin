@@ -1,25 +1,22 @@
 {
-	"name": "eslint-plugin-safely-storage",
-	"version": "1.1.0",
+	"name": "oxlint-plugin-safely-storage",
+	"version": "1.0.0",
 	"description": "Use `try`...`catch` for Web Storage API for increase safety",
 	"keywords": [
-		"eslint",
-		"eslint-plugin",
-		"eslintplugin"
+		"oxlint-plugin"
 	],
-	"homepage": "https://github.com/SaekiTominaga/eslint-plugin#readme",
+	"homepage": "https://github.com/SaekiTominaga/oxlint-plugin#readme",
 	"bugs": {
-		"url": "https://github.com/SaekiTominaga/eslint-plugin/issues"
+		"url": "https://github.com/SaekiTominaga/oxlint-plugin/issues"
 	},
 	"license": "MIT",
 	"author": "Saeki Tominaga",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/SaekiTominaga/eslint-plugin.git"
+		"url": "git+https://github.com/SaekiTominaga/oxlint-plugin.git"
 	},
 	"files": [
-		"dist/**/*.d.ts",
-		"dist/**/*.js"
+		"dist"
 	],
 	"type": "module",
 	"main": "dist/index.js",
@@ -31,10 +28,10 @@
 	"scripts": {
 		"prebuild": "rimraf dist/* -g",
 		"build": "tsc",
-		"lint": "oxlint",
 		"test": "node --experimental-test-coverage --test src/**/*.test.ts"
 	},
 	"peerDependencies": {
-		"eslint": "^9.0.0 || ^10.0.0"
+		"@oxlint/plugins": "^1.80.0",
+		"oxlint": "^1.80.0"
 	}
 }

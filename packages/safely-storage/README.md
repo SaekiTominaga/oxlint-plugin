@@ -1,7 +1,7 @@
-# eslint-plugin-safely-storage
+# oxlint-plugin-safely-storage
 
-[![npm version](https://badge.fury.io/js/eslint-plugin-safely-storage.svg)](https://www.npmjs.com/package/eslint-plugin-safely-storage)
-[![Workflow status](https://github.com/SaekiTominaga/eslint-plugin/actions/workflows/ci.yml/badge.svg)](https://github.com/SaekiTominaga/eslint-plugin/actions/workflows/ci.yml)
+[![npm version](https://badge.fury.io/js/oxlint-plugin-safely-storage.svg)](https://www.npmjs.com/package/oxlint-plugin-safely-storage)
+[![Workflow status](https://github.com/SaekiTominaga/oxlint-plugin/actions/workflows/ci.yml/badge.svg)](https://github.com/SaekiTominaga/oxlint-plugin/actions/workflows/ci.yml)
 
 ## Summary
 
@@ -55,21 +55,26 @@ doSomething(); // This process will run even if the browser blocks cookies
 
 ## Usage
 
-```javascript
-import js from '@eslint/js';
-import pluginSafelyStorage from 'eslint-plugin-safely-storage';
-import globals from 'globals';
+```typescript
+/* oxlint.config.ts */
+import { defineConfig } from 'oxlint';
 
-/** @type {import('eslint').Linter.Config[]} */
-export default [
-  js.configs.recommended,
-  ...pluginSafelyStorage.configs.default,
-  {
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-      },
-    },
+export default defineConfig({
+  categories: {
+    ...
   },
-];
+  plugins: [...],
+  env: {
+    browser: true,
+  },
+  jsPlugins: [
+    {
+      name: 'safely-storage',
+      specifier: 'oxlint-plugin-safely-storage',
+    },
+  ],
+  rules: {
+    'safely-storage/try-catch': 'error',
+  },
+});
 ```
